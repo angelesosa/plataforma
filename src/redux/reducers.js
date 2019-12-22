@@ -5,7 +5,8 @@ import {
   GET_SPECIALITY, 
   GET_ALL_COURSES, 
   GET_COURSE, 
-  GET_FRAGMENT
+  GET_FRAGMENT,
+  GET_ALL_TEACHERS
 } from "./actions";
 
 export const postsReducer = (state = {}, action) => {
@@ -60,6 +61,13 @@ export const courseReducer = (state = {}, action) => {
 }
 
 export const teacherReducer = (state = {}, action) => {
+  if (action.type === GET_ALL_TEACHERS) {
+    return {
+      ...state,
+      teachers: action.teachers,
+    }
+  }
+
   if (action.type === GET_SPECIALITY) {
     return {
       ...state,
